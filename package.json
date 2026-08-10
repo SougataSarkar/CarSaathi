@@ -1,0 +1,30 @@
+{
+  "name": "inr-formatter",
+  "version": "1.0.0",
+  "description": "Week 1 Task 1: INR Currency Formatter",
+  "workspaces": [
+    "Backend",
+    "Frontend"
+  ],
+  "scripts": {
+    "test": "jest --config tests/jest.config.js",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "npm run dev --prefix Frontend",
+    "dev:frontened": "npm run dev --prefix Frontend",
+    "dev:backend": "npm run dev --prefix Backend",
+    "dev:backened": "npm run dev --prefix Backend",
+    "build:frontend": "npm run build --prefix Frontend",
+    "build:backend": "npm run compile --prefix Backend",
+    "build": "npm run build:backend && npm run build:frontend",
+    "start": "npm run start --prefix Backend"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.11.20",
+    "concurrently": "^10.0.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

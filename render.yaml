@@ -1,0 +1,51 @@
+databases:
+  - name: car-saathi-db
+    databaseName: car_saathi
+    user: postgres
+    plan: free
+
+services:
+  # --------------------------------------------------------------------------
+  # 1. Unified Web Service (Recommended)
+  # --------------------------------------------------------------------------
+  # This service compiles the React frontend and builds the Express/TypeScript
+  # backend together, serving the frontend's static bundle directly.
+  # Benefits: Fits completely on Render's free tier, bypasses CORS settings,
+  # and works immediately.
+  # --------------------------------------------------------------------------
+  - type: web
+    name: car-saathi-unified
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: car-saathi-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: GEMINI_API_KEY
+        sync: false # Must be provided manually in the Render dashboard
+      - key: PORT
+        value: 3000
+
+  # --------------------------------------------------------------------------
+  # 2. Separate Frontend Static Site (Optional)
+  # --------------------------------------------------------------------------
+  # If you choose to host the Vite SPA static bundle separately, use this.
+  # Note: If active, you must configure VITE_API_URL pointing to the public URL
+  # of the backend service, and add FRONTEND_URL to the backend settings.
+  # --------------------------------------------------------------------------
+  - type: web
+    name: car-saathi-frontend
+    env: static
+    plan: free
+    rootDir: Frontend
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

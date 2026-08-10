@@ -1,0 +1,37 @@
+{
+  "name": "price-parser",
+  "version": "1.0.0",
+  "description": "Indian Price Parser API for Lakh and Crore values",
+  "main": "dist/server.js",
+  "scripts": {
+    "compile": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^9.4.2",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.5.2",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.22.0",
+    "redis": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20.11.24",
+    "@types/pg": "^8.20.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
