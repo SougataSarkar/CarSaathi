@@ -1,0 +1,328 @@
+/* Cards Grid */
+.cars-listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 24px;
+}
+
+/* Card Styling (Cars24 style) */
+.car-card-cars24 {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--shadow-subtle);
+  text-decoration: none;
+  color: inherit;
+}
+
+.car-card-cars24:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.card-image-box {
+  height: 170px;
+  background-color: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.card-silhouette-svg {
+  width: 140px;
+  height: 50px;
+  background: linear-gradient(90deg, var(--text-light) 0%, var(--cars24-brand) 100%);
+  border-radius: 30% 70% 70% 30% / 50% 60% 40% 50%;
+  opacity: 0.1;
+  position: relative;
+}
+
+.car-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.car-card-cars24:hover .car-card-img {
+  transform: scale(1.08);
+}
+
+.card-heart-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.25rem;
+  color: var(--text-gray);
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+
+.card-heart-btn:hover {
+  color: var(--cars24-orange);
+}
+
+.owned-stock-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background-color: rgba(18, 22, 36, 0.55);
+  /* Semi-transparent background */
+  backdrop-filter: blur(8px);
+  /* Frosted blur overlay */
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border-radius: 6px;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  /* Subtle white border for structure */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+
+.owned-stock-badge::before {
+  content: '🛡️';
+  font-size: 0.75rem;
+}
+
+.card-details-box {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title-line {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.card-title-trim {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Card Metadata Row */
+.card-meta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.meta-pill {
+  background-color: var(--bg-body);
+  color: var(--text-gray);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* EMI & Price Block */
+.emi-price-block {
+  margin-bottom: 12px;
+  border-bottom: 1px dashed var(--border-light);
+  padding-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.emi-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.emi-value span {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.price-details {
+  text-align: right;
+}
+
+.original-price-struck {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-decoration: line-through;
+  margin-right: 4px;
+}
+
+.final-price-bold {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.charges-subtext {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.card-footer-location {
+  background-color: var(--bg-body);
+  border-top: 1px solid var(--border-light);
+  padding: 10px 16px;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-footer-location::before {
+  display: none;
+}
+
+/* No results */
+.no-listings {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-card);
+  border: 1px dashed var(--border-light);
+  color: var(--text-gray);
+}
+
+/* Similar Cars & Semantic Search Styles */
+.similar-cars-section {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-light);
+}
+
+.similar-cars-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.similar-cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.similar-car-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-subtle);
+}
+
+.similar-car-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--brand);
+}
+
+.similar-car-img-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 60%;
+  /* Aspect Ratio */
+  overflow: hidden;
+}
+
+.similar-car-img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.similar-car-card:hover .similar-car-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.similarity-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: var(--orange);
+  color: #ffffff;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.similar-car-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.similar-car-info h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.similar-car-price-city {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.similar-price {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--brand);
+}
+
+.similar-city {
+  font-size: 0.75rem;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.similar-cars-section.loading {
+  text-align: center;
+  padding: 30px;
+}

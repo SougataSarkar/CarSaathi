@@ -193,7 +193,7 @@ export async function recommendCars(
   const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
 
   // Fall back if API Key is missing or invalid
-  if (!apiKey || apiKey === 'undefined' || apiKey.trim() === '') {
+  if (!apiKey || apiKey === 'undefined' || apiKey.trim() === '' || apiKey === 'your_gemini_api_key_here') {
     return getMockRecommendations(preferences, cars);
   }
 

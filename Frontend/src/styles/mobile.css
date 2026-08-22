@@ -1,0 +1,712 @@
+/* --------------------------------------------------------------------------
+   Mobile Hamburger Menu & Sidebar Drawer Styles
+   -------------------------------------------------------------------------- */
+
+/* Hamburger Menu Button */
+.hamburger-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  margin-left: 10px;
+  outline: none;
+  transition: opacity 0.2s ease;
+}
+
+.hamburger-menu-btn:hover {
+  opacity: 0.85;
+}
+
+.hamburger-menu-btn .bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-dark);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger-menu-btn.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background-color: var(--orange);
+}
+
+.hamburger-menu-btn.open .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger-menu-btn.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: var(--orange);
+}
+
+/* Mobile Sidebar Drawer */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--bg-card);
+  border-left: 1px solid var(--border-light);
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+}
+
+.mobile-sidebar.open {
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobile-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.sidebar-close-btn {
+  font-size: 2rem;
+  background: transparent;
+  border: none;
+  color: var(--text-dark);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.mobile-sidebar-nav {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.mobile-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-nav-group-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.mobile-nav-group-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 0;
+  align-items: center;
+  width: 100%;
+}
+
+.mobile-nav-group-links button {
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-light);
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 10px 16px;
+  color: var(--text-dark);
+  cursor: pointer;
+  font-weight: 600;
+  font-family: inherit;
+  transition: all 0.2s;
+  width: 100%;
+  border-radius: var(--radius-input, 8px);
+  box-sizing: border-box;
+}
+
+.mobile-nav-group-links button:hover {
+  color: var(--cars24-orange, #ff5a00);
+  border-color: var(--cars24-orange, #ff5a00);
+  background-color: rgba(255, 90, 0, 0.04);
+}
+
+.mobile-sidebar-footer {
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.mobile-sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-input);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.mobile-sidebar-btn:hover {
+  background-color: var(--border-light);
+}
+
+.mobile-profile-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--text-gray);
+  padding: 10px;
+  background-color: var(--bg-body);
+  border-radius: var(--radius-input);
+  border: 1px solid var(--border-light);
+  text-align: left;
+}
+
+.mobile-logout-btn {
+  background: transparent;
+  border: 1px solid var(--cars24-orange, #ff5a00);
+  color: var(--cars24-orange, #ff5a00);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  align-self: flex-start;
+  transition: all 0.2s;
+}
+
+.mobile-logout-btn:hover {
+  background-color: var(--cars24-orange, #ff5a00);
+  color: #fff;
+}
+
+.mobile-sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries & Mobile Optimizations
+   -------------------------------------------------------------------------- */
+
+/* Lock horizontal scrolling globally and ensure clean mobile page width */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+/* Mobile Filter Header (hidden on desktop by default) */
+.mobile-filter-header {
+  display: none;
+}
+
+/* Mobile Floating Filter Button (hidden on desktop by default) */
+.mobile-floating-filter-btn {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .app-header {
+    padding: 10px 20px;
+    width: calc(100% - 32px);
+    margin: 18px auto 0 auto;
+    top: 18px;
+  }
+
+  .brand-logo-img {
+    height: 38px !important;
+  }
+
+  .header-left {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 16px;
+  }
+
+  .header-nav {
+    display: none !important;
+    /* Hide desktop nav link menu */
+  }
+
+  .header-right>*:not(.hamburger-menu-btn):not(.mobile-search-btn) {
+    display: none !important;
+    /* Hide other header buttons */
+  }
+
+  .header-right {
+    gap: 8px !important;
+  }
+
+  .mobile-search-btn {
+    display: flex !important;
+  }
+
+  .hamburger-menu-btn {
+    display: flex;
+    margin-left: 0 !important;
+    /* Show hamburger button on mobile/tablets */
+  }
+}
+
+/* Media Query for mobile & tablet layout adjustment */
+@media (max-width: 991px) {
+
+  /* Restructure main containers to column and reduce margins */
+  .app-container {
+    width: calc(100% - 32px);
+    margin: 16px auto 0 auto;
+    padding: 0;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sidebar-column {
+    width: 100%;
+    gap: 12px;
+  }
+
+  /* Hides sidebar by default and display as overlay drawer sliding up from bottom */
+  .sidebar {
+    display: flex !important;
+    visibility: hidden;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10001;
+    background-color: var(--bg-card);
+    overflow-y: auto;
+    padding: 24px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+  }
+
+  /* When open, sidebar slides in from bottom */
+  .sidebar.mobile-open {
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .mobile-filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+
+  .mobile-filter-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-dark);
+  }
+
+  .mobile-filter-close-btn {
+    background-color: var(--cars24-orange, #ff5a00);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--radius-input);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s;
+  }
+
+  .mobile-filter-close-btn:hover {
+    background-color: #e04f00;
+  }
+
+  /* Floating Filter button at bottom center (semi-transparent blur background) */
+  .mobile-floating-filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    background: rgba(255, 90, 0, 0.85);
+    /* Semi-transparent orange */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    box-shadow: 0 4px 20px rgba(255, 90, 0, 0.35);
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.2s;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .mobile-floating-filter-btn:active {
+    transform: translateX(-50%) scale(0.95);
+    background: rgba(255, 90, 0, 1);
+  }
+
+  /* Make location dropdown a centered popup modal on mobile screens */
+  .location-custom-dropdown {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90% !important;
+    max-width: 320px !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box;
+    z-index: 10002 !important;
+    border-radius: var(--radius-card) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .location-dropdown-backdrop {
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+    z-index: 10001 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .cars-listings-grid {
+    grid-template-columns: 1fr !important;
+    /* Forces single column to prevent overflow */
+  }
+
+  .app-container {
+    width: calc(100% - 20px) !important;
+    margin: 12px auto 0 auto !important;
+    padding: 0 !important;
+  }
+
+  .app-header {
+    padding: 10px 12px !important;
+    height: 60px !important;
+    width: calc(100% - 20px) !important;
+    margin: 20px auto 0 auto !important;
+    top: 20px !important;
+    border-radius: 12px !important;
+  }
+
+  .header-left {
+    gap: 8px !important;
+  }
+
+  .brand-logo {
+    font-size: 1.25rem !important;
+  }
+
+  .location-badge-btn {
+    padding: 6px 10px !important;
+    font-size: 0.8rem !important;
+    height: 32px !important;
+  }
+
+  .location-select-icon {
+    left: 7px !important;
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile View Fit Overrides (AI Assistant, Loan Application, Valuation)
+   -------------------------------------------------------------------------- */
+
+/* Ensure all form inputs, text areas and selects are robustly responsive */
+.form-group select,
+.form-group input,
+.form-group textarea {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+
+  /* Center the car listings header text, grid, and average price/inventory stats toolbar on mobile/tablets */
+  .listings-meta {
+    text-align: center !important;
+    margin-bottom: 8px !important;
+  }
+
+  .listings-toolbar {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 10px !important;
+    padding: 10px 14px !important;
+    margin-top: -6px !important;
+  }
+
+  .toolbar-stats {
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 16px !important;
+  }
+
+  .toolbar-actions {
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+    display: flex !important;
+  }
+
+  .toolbar-actions .currency-toggle-btn:not(.price-format-btn) {
+    order: 1 !important;
+  }
+
+  .toolbar-actions .price-format-btn {
+    order: 2 !important;
+  }
+
+  .toolbar-actions .toolbar-select {
+    order: 3 !important;
+  }
+
+  .cars-listings-grid {
+    justify-content: center !important;
+  }
+
+  /* AI Recommendation Parameter Grid */
+  .ai-params-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* AI Recommendation Output Cards stacking */
+  .ai-rec-card {
+    flex-direction: column !important;
+  }
+
+  .ai-rec-img-wrapper {
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 200px !important;
+  }
+
+  .ai-rec-content-wrapper {
+    padding: 16px !important;
+    gap: 16px !important;
+  }
+
+  .ai-rec-title-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  /* Force side-by-side booking & loan form fields to stack vertically */
+  .booking-field-row {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .booking-field-row>div {
+    width: 100% !important;
+  }
+
+  /* Loan success certificate box alignment */
+  .loan-success-certificate {
+    padding: 16px !important;
+  }
+
+  .certificate-details {
+    padding: 12px !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Split page components heading adjustments */
+  .tab-header h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .tab-header p {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* ==========================================================================
+   Mobile Semantic Search Integration Styles
+   ========================================================================== */
+
+.mobile-search-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--text-dark);
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  z-index: 101;
+  transition: transform 0.2s, color 0.2s;
+  border-radius: 50%;
+}
+
+.mobile-search-btn:hover {
+  background-color: var(--bg-hover, rgba(0, 0, 0, 0.05));
+  color: var(--brand);
+}
+
+.mobile-search-btn:active {
+  transform: scale(0.9);
+  color: var(--brand);
+}
+
+/* Mobile search overlay header */
+.mobile-search-overlay {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-card);
+  padding: 0 16px;
+  z-index: 102;
+  box-sizing: border-box;
+  gap: 12px;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-search-back-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: transform 0.15s;
+}
+
+.mobile-search-back-btn:active {
+  transform: translateX(-3px);
+}
+
+.mobile-search-input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-page);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 6px 14px;
+  gap: 8px;
+}
+
+.mobile-search-input-wrapper .search-icon {
+  color: var(--text-gray);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+}
+
+.mobile-search-clear-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-gray);
+  cursor: pointer;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-search-badge {
+  font-size: 0.7rem;
+  background: linear-gradient(135deg, var(--brand), #ff6f54);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(133, 112, 245, 0.2);
+}

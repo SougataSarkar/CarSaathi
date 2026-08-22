@@ -1,0 +1,550 @@
+/* Header Area */
+.app-header {
+  position: sticky;
+  top: 24px;
+  z-index: 100;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  max-width: 1400px;
+  width: calc(100% - 48px);
+  margin: 24px auto 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px;
+  height: 70px;
+  box-shadow: var(--shadow-card);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand-logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--brand), var(--orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: -0.5px;
+}
+
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.location-badge {
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-light);
+  padding: 8px 16px;
+  border-radius: var(--radius-input);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--cars24-orange);
+}
+
+/* Navigation Dropdown Menu Styles */
+.nav-item-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-input);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  min-width: 220px;
+  z-index: 110;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover bridge to keep dropdown open */
+.nav-item-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu-item {
+  background: transparent;
+  border: none;
+  color: var(--text-dark);
+  padding: 10px 18px;
+  text-align: left;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  transition: background-color 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+.dropdown-menu-item:hover {
+  background-color: rgba(255, 90, 0, 0.08);
+  color: var(--cars24-orange, #ff5a00);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.call-us-btn {
+  background-color: #ffffff;
+  color: #0a0d16;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-input);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.call-us-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.wishlist-icon {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  line-height: 1.2;
+}
+
+.profile-section strong {
+  color: var(--text-dark);
+  display: block;
+  font-size: 0.85rem;
+}
+
+/* Location Selector Custom Styles */
+.location-selector-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.location-badge-btn {
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-light);
+  padding: 8px 14px;
+  border-radius: var(--radius-input);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+  transition: background-color 0.2s;
+  position: relative;
+  height: 38px;
+}
+
+.location-badge-btn:hover {
+  background-color: var(--border-light);
+}
+
+.location-select-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Background overlay to close dropdown on click outside */
+.location-dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 199;
+  background: transparent;
+}
+
+/* Custom Location Dropdown Menu */
+.location-custom-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 280px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-input);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.location-dropdown-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-gray);
+  margin-bottom: 2px;
+  text-align: left;
+}
+
+/* Detect location button inside dropdown */
+.location-detect-btn {
+  background-color: rgba(255, 90, 0, 0.08);
+  border: 1px solid rgba(255, 90, 0, 0.2);
+  color: var(--cars24-orange, #ff5a00);
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-input);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.location-detect-btn:hover {
+  background-color: var(--cars24-orange, #ff5a00);
+  color: #fff;
+  border-color: var(--cars24-orange, #ff5a00);
+}
+
+.location-detect-btn.detecting {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Or divider */
+.location-or-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  gap: 10px;
+}
+
+.location-or-divider::before,
+.location-or-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Cities Grid selector */
+.location-cities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.city-grid-btn {
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.city-grid-btn:hover {
+  border-color: var(--cars24-orange, #ff5a00);
+  color: var(--cars24-orange, #ff5a00);
+}
+
+.city-grid-btn.active {
+  background-color: var(--cars24-brand);
+  color: #fff;
+  border-color: var(--cars24-brand);
+}
+
+/* Sidebar Select Location Filter */
+.sidebar-select {
+  width: 100%;
+  padding: 10px 32px 10px 36px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-input);
+  background-color: var(--bg-body);
+  outline: none;
+  color: var(--text-dark);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f8fafc' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.sidebar-select:hover {
+  border-color: var(--cars24-brand);
+}
+
+.sidebar-select:focus {
+  border-color: var(--cars24-brand);
+  background-color: var(--bg-card);
+}
+
+.sidebar-select option {
+  background-color: var(--bg-card);
+  color: var(--text-dark);
+}
+
+/* User Profile Dropdown Menu */
+.user-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  width: 240px;
+  padding: 16px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 200;
+  cursor: default;
+}
+
+.dropdown-user-info {
+  border-bottom: 1px dashed var(--border-light);
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-name {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.info-email,
+.info-phone {
+  font-size: 0.75rem;
+  color: var(--text-gray);
+  word-break: break-all;
+}
+
+.logout-btn {
+  background-color: var(--cars24-orange);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius-input);
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.logout-btn:hover {
+  opacity: 0.9;
+}
+
+/* Location detection button styling */
+.detect-location-btn {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  padding: 8px 12px;
+  border-radius: var(--radius-input);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+  width: 100%;
+  justify-content: center;
+}
+
+.detect-location-btn:hover {
+  border-color: var(--brand);
+  background-color: rgba(133, 112, 245, 0.1);
+}
+
+.detect-location-btn:active {
+  transform: scale(0.98);
+}
+
+/* Custom Illustrative Popular Cities Modal Styles */
+.popular-cities-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.popular-cities-svg-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .popular-cities-svg-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+}
+
+.popular-city-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card, 12px);
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.popular-city-card:hover {
+  border-color: var(--brand);
+  background-color: rgba(255, 90, 0, 0.04);
+}
+
+.popular-city-card.active {
+  border-color: var(--brand);
+  background-color: rgba(255, 90, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(255, 90, 0, 0.1);
+}
+
+.popular-city-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--bg-tertiary);
+  color: var(--text-gray);
+  transition: all 0.2s ease;
+}
+
+.popular-city-card:hover .popular-city-icon-box,
+.popular-city-card.active .popular-city-icon-box {
+  background-color: rgba(255, 90, 0, 0.12);
+  color: var(--brand);
+}
+
+.city-svg {
+  width: 32px;
+  height: 32px;
+  color: inherit;
+  transition: stroke 0.2s ease;
+}
+
+.popular-city-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* Modal sizing adjustments when manual selection is active */
+.location-custom-dropdown.manual-select-active {
+  width: 480px !important;
+  max-width: 95vw !important;
+}
+
+@media (max-width: 480px) {
+  .location-custom-dropdown.manual-select-active {
+    width: 95vw !important;
+    max-width: 440px !important;
+  }
+}

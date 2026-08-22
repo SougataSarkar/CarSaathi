@@ -1,5 +1,5 @@
 {
-  "name": "inr-formatter",
+  "name": "CarSaathi",
   "version": "1.0.0",
   "description": "Week 1 Task 1: INR Currency Formatter",
   "workspaces": [
@@ -10,9 +10,7 @@
     "test": "jest --config tests/jest.config.js",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:frontend": "npm run dev --prefix Frontend",
-    "dev:frontened": "npm run dev --prefix Frontend",
     "dev:backend": "npm run dev --prefix Backend",
-    "dev:backened": "npm run dev --prefix Backend",
     "build:frontend": "npm run build --prefix Frontend",
     "build:backend": "npm run compile --prefix Backend",
     "build": "npm run build:backend && npm run build:frontend",

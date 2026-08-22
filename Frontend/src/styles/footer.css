@@ -1,0 +1,409 @@
+/* ==========================================================================
+   Company Footer Styling
+   ========================================================================== */
+.company-footer {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-light);
+  color: var(--text-dark);
+  margin-top: 48px;
+  width: 100%;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+/* 1. Trust Pillars Bar */
+.footer-trust-bar {
+  background-color: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-light);
+  padding: 24px 20px;
+}
+
+.footer-trust-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.footer-trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.trust-icon-box {
+  font-size: 1.6rem;
+  line-height: 1;
+  background: var(--bg-card);
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-subtle);
+}
+
+.trust-item-title {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.trust-item-desc {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  line-height: 1.4;
+}
+
+/* 2. Main Footer Wrapper & Columns */
+.footer-main-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 24px 32px 24px;
+  box-sizing: border-box;
+}
+
+.footer-columns-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.1fr 1.5fr;
+  gap: 40px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Brand Column */
+.footer-brand-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.footer-logo-text {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--brand), var(--orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.footer-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(133, 112, 245, 0.15);
+  color: var(--brand);
+  border: 1px solid rgba(133, 112, 245, 0.3);
+  padding: 3px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.footer-about-text {
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.footer-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.contact-icon {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 2px;
+}
+
+.contact-val {
+  color: var(--text-dark);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-val:hover {
+  color: var(--brand);
+}
+
+/* Headings & Lists */
+.footer-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 20px 0;
+  position: relative;
+}
+
+.footer-heading::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--orange));
+  border-radius: 2px;
+  margin-top: 6px;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links-list li button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-links-list li button:hover {
+  color: var(--brand);
+  transform: translateX(4px);
+}
+
+/* Newsletter Column */
+.footer-newsletter-desc {
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+.footer-newsletter-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.footer-email-input {
+  flex: 1;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  padding: 10px 14px;
+  border-radius: var(--radius-input);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+  min-width: 0;
+}
+
+.footer-email-input:focus {
+  border-color: var(--brand);
+}
+
+.footer-subscribe-btn {
+  background: linear-gradient(135deg, var(--brand), var(--orange));
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: var(--radius-input);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.footer-subscribe-btn:hover {
+  opacity: 0.9;
+}
+
+/* Social Icons */
+.social-heading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 10px 0;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  background: var(--brand);
+  color: #ffffff;
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+
+/* 3. Brands Strip */
+.footer-brands-strip {
+  border-top: 1px dashed var(--border-light);
+  margin-top: 36px;
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brands-strip-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.brands-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.brand-pill-tag {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  color: var(--text-gray);
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.brand-pill-tag:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+  background: rgba(133, 112, 245, 0.1);
+}
+
+/* 4. Bottom Bar */
+.footer-bottom-bar {
+  background-color: var(--bg-body);
+  border-top: 1px solid var(--border-light);
+  padding: 20px 24px;
+}
+
+.footer-bottom-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+}
+
+.legal-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.legal-links a {
+  color: var(--text-gray);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.legal-links a:hover {
+  color: var(--brand);
+}
+
+.legal-sep {
+  color: var(--text-light);
+}
+
+.back-to-top-btn {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.back-to-top-btn:hover {
+  background: var(--brand);
+  color: #ffffff;
+  border-color: var(--brand);
+}
+
+/* Responsive Footer Adjustments */
+@media (max-width: 1024px) {
+  .footer-trust-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-columns-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-trust-container {
+    grid-template-columns: 1fr;
+  }
+  .footer-columns-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .legal-links {
+    justify-content: center;
+  }
+}

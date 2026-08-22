@@ -1,0 +1,68 @@
+:root {
+  --brand: #8570f5;
+  /* High-contrast indigo for dark background */
+  --orange: #ff6f54;
+  /* High-contrast orange accent */
+  --bg-body: #0a0d16;
+  /* Deep obsidian/space black */
+  --bg-card: #121624;
+  /* Rich navy-slate for cards/sidebar */
+  --bg-tertiary: #1b2033;
+  /* Lighter slate for inputs/toggles */
+  --text-dark: #f8fafc;
+  /* Clean light white */
+  --text-gray: #94a3b8;
+  /* Sleek cool gray */
+  --text-light: #64748b;
+  /* Muted gray */
+  --border-light: #21293e;
+  /* Soft dark borders */
+  --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --radius-pill: 9999px;
+  --radius-card: 16px;
+  --radius-input: 8px;
+}
+
+:root.light-theme,
+body.light-theme {
+  --bg-body: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --text-dark: #0f172a;
+  --text-gray: #475569;
+  --text-light: #64748b;
+  --border-light: #e2e8f0;
+  --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: 15px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--border-light);
+  transform: rotate(15deg) scale(1.05);
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}

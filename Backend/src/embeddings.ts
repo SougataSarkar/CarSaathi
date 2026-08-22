@@ -3,8 +3,6 @@ import path from 'path';
 
 dotenv.config({ path: path.join(__dirname, '../.env') });
 
-const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
-
 /**
  * Formats a car's properties into a rich text description for embedding generation.
  */
@@ -35,11 +33,20 @@ export function getCarSearchText(car: {
 }
 
 /**
+ * Helper to check if a valid Gemini API key is present in environment variables.
+ */
+export function hasGeminiKey(): boolean {
+  const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+  return Boolean(apiKey && apiKey !== 'undefined' && apiKey.trim() !== '' && apiKey !== 'your_gemini_api_key_here');
+}
+
+/**
  * Fetches the vector embedding from Google Gemini API for a given string.
  */
 export async function getEmbedding(text: string): Promise<number[] | null> {
-  if (!apiKey || apiKey === 'undefined' || apiKey.trim() === '') {
-    console.warn('[Embeddings] Gemini API key not found. Skipping embedding generation.');
+  const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+
+  if (!hasGeminiKey()) {
     return null;
   }
 
